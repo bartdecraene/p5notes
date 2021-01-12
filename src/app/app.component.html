@@ -1,0 +1,12 @@
+<div class="root">
+    <p>Gebruikers applicatie</p>
+    <hr />
+
+    <app-user *ngFor="let user of users" [user]="user" (deleted)="deleteUser($event)"></app-user>
+
+    <hr/>
+    <input [(ngModel)]="newName"/>
+    <button (click)="addUser()">Voeg een gebruiker toe</button>
+</div>
+
+
