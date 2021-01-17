@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteService } from './note.service';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -11,23 +11,23 @@ export class AppComponent implements OnInit {
   users: string[];
   newName: string ="";
 
-  constructor(private noteService: NoteService){}
+  constructor(private appService: AppService){}
   
   ngOnInit(){
-    this.noteService.getUsers().subscribe((data: string[]) => {
+    this.appService.getUsers().subscribe((data: string[]) => {
       this.users = data;
     });
   }
 
   addUser = () => {
-    this.noteService.addUser(this.newName).subscribe((result: any) => {
+    this.appService.addUser(this.newName).subscribe((result: any) => {
       let error = result.error;
 
       if (error) {
         console.log(`Error: ${error}`);
       } else {
         this.newName = "";
-        this.noteService.getUsers().subscribe((data: string[]) => {
+        this.appService.getUsers().subscribe((data: string[]) => {
           this.users = data;
         });
       }
@@ -35,10 +35,10 @@ export class AppComponent implements OnInit {
   };
 
   deleteUser = (name: string) => {
-    this.noteService.deleteUser(name).subscribe((result: any) => {
+    this.appService.deleteUser(name).subscribe((result: any) => {
       console.log(result);
 
-      this.noteService.getUsers().subscribe((data: string[]) => {
+      this.appService.getUsers().subscribe((data: string[]) => {
         this.users = data;
       });
     });

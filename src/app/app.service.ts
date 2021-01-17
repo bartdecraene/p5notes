@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class NoteService {
+export class AppService {
 
   constructor(private http: HttpClient) { }
 
@@ -25,6 +25,8 @@ export class NoteService {
       'https://p5backend.glitch.me/users', options
     );
   }
+
+  
 
 
   

@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-//import { NoteService } from '../note.service';
+//import { appService } from '../app.service';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +10,7 @@ export class UserComponent {
   @Input() user: any;
   @Output() deleted = new EventEmitter<string>();
   
-  //constructor(private noteService: NoteService){}
+  //constructor(private appService: appService){}
 
   onDeleteClick = () => {
     this.deleted.emit(this.user.name);

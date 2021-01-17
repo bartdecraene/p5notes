@@ -7,13 +7,15 @@ import { UserComponent } from './user/user.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { NoteComponent } from './note/note.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
